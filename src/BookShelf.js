@@ -10,18 +10,24 @@ class BookShelf extends Component {
         // changeStatus: PropTypes.func.isRequired,
         // getBookShelf: PropTypes.func.isRequired
     };
+    constructor(props) {
+        super(props);
 
+        this.state = {
+            shelf: ["currentlyReading", "wantToRead", "read"]
+        }
+    }
     render() {
-
         return (
             <div className="bookshelf">
                 <h2 className="bookshelf-title">{this.props.title}</h2>
                 <div className="bookshelf-books">
                     <ol className="books-grid">
                         {/* here we put the books */}
-                        {this.props.books.map((book) => (
+                        
+                        {this.props.books.filter(book => (book.shelf === this.state.shelf[0])).map((book) => (
                             <li className="book-list-item" key={book.id}>
-                                <Book book={book}/>
+                                <Book book={book} />
                             </li>
                         ))}
                     </ol>
@@ -32,3 +38,4 @@ class BookShelf extends Component {
 }
 
 export default BookShelf
+
