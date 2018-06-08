@@ -29,7 +29,7 @@ class BooksApp extends React.Component {
       <div className="app">
 
         {/* here will display de shelves with books*/}
-        <BookShelf books={this.state.books} status="read"/>
+        <BookShelf books={this.state.books} shelf="read"/>
 
       </div>
     )
