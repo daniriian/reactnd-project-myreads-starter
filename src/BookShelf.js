@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-import './App.css'
 import Book from './Book.js'
+import sortBy from 'sort-by'
 
 class BookShelf extends Component {
    
@@ -19,7 +18,7 @@ class BookShelf extends Component {
                                 <ol className="books-grid">
                                     {/* here we put the books */}
 
-                                    {this.props.books.filter(book => (book.shelf === shelf)).map((book) => (
+                                    {this.props.books.sort(sortBy('title')).filter(book => (book.shelf === shelf)).map((book) => (
                                         <li className="book-list-item" key={book.id}>
                                             <Book book={book} 
                                                   onUpdateBook={this.props.onUpdateBook}
