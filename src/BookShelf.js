@@ -21,7 +21,9 @@ class BookShelf extends Component {
 
                                     {this.props.books.filter(book => (book.shelf === shelf)).map((book) => (
                                         <li className="book-list-item" key={book.id}>
-                                            <Book book={book} />
+                                            <Book book={book} 
+                                                  onUpdateBook={this.props.onUpdateBook}
+                                            />
                                         </li>
                                     ))}
                                 </ol>
