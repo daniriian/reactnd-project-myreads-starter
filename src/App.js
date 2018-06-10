@@ -6,15 +6,13 @@ import Header from './Header.js'
 import { Route, Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 
-
-
-
 class BooksApp extends React.Component {
+  
   state = {
-    books: []
+    books: [] 
   }
 
-
+  //render book in shelf selected in shelfchanger
   moveBookToShelf = (book, shelf) => {
     if (this.state.books) {
       BooksAPI.update(book, shelf)
@@ -28,7 +26,7 @@ class BooksApp extends React.Component {
   }
 
  
-
+  // add books from BooksAPI
   componentDidMount() {
     BooksAPI.getAll()
       .then((books) => {

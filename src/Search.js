@@ -3,8 +3,14 @@ import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book.js'
 import sortBy from 'sort-by'
+import PropTypes from 'prop-types'
 
 class Search extends Component {
+    static propTypes = {
+        book: PropTypes.array,
+        onUpdateBook: PropTypes.func.isRequired
+    }
+    
     state = {
         query: '', //empty query string
         books: []  //empty array of books
