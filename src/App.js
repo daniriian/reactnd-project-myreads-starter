@@ -4,6 +4,7 @@ import './App.css'
 import * as BooksAPI from './BooksAPI'
 import BookShelf from './BookShelf.js'
 import Search from './Search.js'
+import Header from './Header.js'
 
 
 
@@ -25,6 +26,7 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
         {/* here will display de shelves with books*/}
+        <Header />
         <BookShelf books={this.state.books}/>
         <Search />
       </div>
