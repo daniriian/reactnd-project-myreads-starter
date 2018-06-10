@@ -4,9 +4,6 @@ class Book extends Component {
 
     updateBook (selectOption) {
         this.props.onUpdateBook(this.props.book, selectOption)
-        console.log(this.props.book.shelf)
-        console.log (selectOption)
-        
     }
 
     render() {

@@ -1,10 +1,11 @@
 import React from 'react'
-// import * as BooksAPI from './BooksAPI'
 import './App.css'
-import * as BooksAPI from './BooksAPI'
 import BookShelf from './BookShelf.js'
 import Search from './Search.js'
 import Header from './Header.js'
+import { Route, Link } from 'react-router-dom'
+import * as BooksAPI from './BooksAPI'
+
 
 
 
@@ -40,14 +41,30 @@ class BooksApp extends React.Component {
     
     return (
       <div className="app">
-        <Header />
-        <BookShelf 
+
+        <Route exact path="/" render={()=> (
+          <div className="list-books">
+            <Header />
+            <BookShelf
               onUpdateBook={this.moveBookToShelf}
-              books={this.state.books}
-        />
-        <div className="open-search" >
-          <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
-        </div>
+              books={this.state.books} 
+            />
+
+            <div className="open-search">
+              <Link to="/search">Add a book</Link>
+            </div>
+
+          </div>
+          )}/>
+
+        
+        <Route path="/search" render={() => (
+          <Search
+            onUpdateBook={this.moveBookToShelf}
+            booksOnShelf={this.state.books}
+          />
+        )} />
+
       </div>
     )
   }

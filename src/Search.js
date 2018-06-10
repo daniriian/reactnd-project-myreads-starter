@@ -9,6 +9,22 @@ class Search extends Component {
         query: '', //empty query string
         books: []  //empty array of books
     }
+
+    updateQuery = (query) => {
+        if (!query) {
+            this.setState({query:'', books:[]})
+        }
+        else {
+            this.setState({query: query.trim()})
+            BooksAPI.search(query)
+            .then ((books)=>{
+                if (books.error) {books=[]}
+                books.map((book) => (this.props.booksOnShelf.filter((boo) => boo.id === book.id).map(boo => book.shelf = boo.shelf)))
+                this.setState({ books })
+            })
+        }
+    }
+
     render() {
         return (
             <div className="search-books">
@@ -26,11 +42,14 @@ class Search extends Component {
                     <ol className="books-grid">
                         <div className="bookshelf-books">
                             <ol className="books-grid">
-                                this.state.books.map(
-                                    book=>(
-                                        <p>fdsfsa</p>
-                                    )
-                                )
+                                {this.state.books.sort(sortBy('title')).map((book)=>(
+                                    <Book 
+                                        key={book.id}
+                                        book={book}
+                                        onUpdateBook={this.props.onUpdateBook}
+                                    />
+                                ))
+                                }
                             </ol>
                         </div>
                     </ol>
