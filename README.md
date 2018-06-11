@@ -15,21 +15,26 @@ Make sure you have Git and Node installed, before you proceed.
 
 #### 1. Clone the repositors to your local machine
 
-
+```
 $ git clone https://github.com/daniriian/reactnd-project-myreads-starter.git
+```
 
 #### 2. Run "npm install" in your local repository's folder
 
+```
 $ cd reactnd-project-myreads-starter/
-
+```
+```
 reactnd-project-myreads-starter (master)
 $ npm install
+```
 
 #### 3. Start the app with "npm start"
 
+```
 reactnd-project-myreads-starter (master)
 $ npm start
-
+```
 
 #### 4. Open your browser at http://localhost:3000/
 
